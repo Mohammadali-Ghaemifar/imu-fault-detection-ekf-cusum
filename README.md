@@ -2,7 +2,7 @@
 
 This project implements a robust **IMU fault detection framework** that combines an **Extended Kalman Filter (EKF)** for bias estimation with a **CUSUM detector** for identifying abnormal sensor behavior. The goal is to reliably detect faults in all six IMU channels (Ax, Ay, Az, p, q, r) while maintaining filter stability and minimizing false alarms.
 
-IMU faults—such as bias drifts, spikes, and sensor degradation—can significantly degrade state estimation in aerospace, robotics, and autonomous systems. This framework provides an end-to-end solution for **early, accurate, and stable fault detection**.
+IMU faults—such as bias drifts, spikes, and sensor degradation—can significantly degrade state estimation in aerospace, robotics, and autonomous systems. This framework provides an end-to-end solution for **early, accurate, and stable fault detection**. 
 
 ---
 
@@ -75,7 +75,8 @@ This repository includes:
 - Results for weighted, Pareto, and ε-constraint methods  
 
 ## ⚙️ Execution Flow
-
+To access the dataset, please visit the link below.
+https://drive.google.com/file/d/1IPj3R-Znn22XMwVfa8Em2udfhFdiu8Mi/view?usp=sharing
 flowchart TD
     A[Start] --> B[Main_weighted.m / Main_Pareto.m / Main_epsilon.m]
 
