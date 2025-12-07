@@ -78,18 +78,20 @@ This repository includes:
 
 ```mermaid
 flowchart TD
-    A[Start] --> B[Main_weighted.m<br/>Main_Pareto.m<br/>Main_epsilon.m]
+    A[Start] --> B[Main_weighted.m / Main_Pareto.m / Main_epsilon.m]
 
     B --> C[Generate Sobol samples for γ, δ, σ_bias]
-    C --> D[For each channel<br/>call evaluateDesign_channel(_pareto)]
-    D --> E[Task3_2Run_v2.m<br/>Run EKF on faulty data (dataTask3)]
-    E --> F[runCUSUM_channel.m<br/>CUSUM on EKF innovation / IMU estimate]
-    F --> G[Compute objectives<br/>Delay D, False Alarms F, Bias Variance V, Cost J]
-    G --> H[Select best (γ, δ, σ_bias)<br/>for each of 6 IMU channels]
-    H --> I[Save tuned parameters to<br/>best_per_channel_weighted_results.mat<br/>best_per_channel_results_pareto.mat<br/>best_per_channel_results_epsilon.mat]
+    C --> D[Loop over channels]
+    D --> E[evaluateDesign\_channel / evaluateDesign\_channel\_pareto]
 
-    I --> J[SID.m]
-    J --> K[Load best_per_channel_*.mat<br/>+ nominal stats from dataTask2<br/>(Task3_2Run_v2.m)]
-    K --> L[Run EKF on test/faulty data<br/>(dataTask3, Task3_2Run_v2.m)]
-    L --> M[Channel-wise CUSUM using tuned γ, δ<br/>Detect fault times Ax_f…r_f]
-    M --> N[Output x_est, b_est, fault times<br/>+ plots and tables]
+    E --> F[Task3_2Run\_v2.m (run EKF on faulty data)]
+    F --> G[runCUSUM\_channel.m (CUSUM on IMU/EKF innovation)]
+    G --> H[Compute D (delay), F (false alarms), V (bias variance), J (cost)]
+    H --> I[Select best γ, δ, σ\_bias for each of 6 IMU channels]
+    I --> J[Save best\_per\_channel\_*.mat]
+
+    J --> K[SID.m]
+    K --> L[Load best parameters + nominal stats (dataTask2)]
+    L --> M[Run EKF on test/faulty data (dataTask3)]
+    M --> N[Channel-wise CUSUM with tuned γ, δ]
+    N --> O[Outputs: x\_est, b\_est, Ax\_f…r\_f + plots]
