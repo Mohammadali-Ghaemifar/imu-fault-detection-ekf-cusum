@@ -76,7 +76,6 @@ This repository includes:
 
 ## ⚙️ Execution Flow
 
-```mermaid
 flowchart TD
     A[Start] --> B[Main_weighted.m / Main_Pareto.m / Main_epsilon.m]
 
