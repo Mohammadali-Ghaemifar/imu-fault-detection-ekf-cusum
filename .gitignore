@@ -1,0 +1,32 @@
+# MATLAB backup and autosave files
+*.asv
+*.m~
+*.bak
+
+# MATLAB cache folders
+slprj/
+sccprj/
+codegen/
+cache/
+
+# Simulink auto-generated files
+*.slxc
+*.mex*
+*.mdl.r*
+*.autosave
+
+# Temp and local files
+*.swp
+*.tmp
+*.log
+
+# Data files (optional - keep if you don't want certain .mat files)
+# *.mat
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment (if accidentally added)
+venv/
+__pycache__/
